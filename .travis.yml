@@ -3,6 +3,7 @@ script: cmake . && make
 
 before_install:
 - sudo apt-get update -qq -y
+- sudo apt-get upgrade -qq -y
 
 compiler:
   - gcc
