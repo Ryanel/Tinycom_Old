@@ -1,5 +1,5 @@
 # CMake
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.9.3)
 project (Tinycom CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -27,8 +27,17 @@ configure_file (
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
-# Cflags
+set(Boost_USE_MULTITHREADED      ON)
 
+
+# find_package(Boost
+#    1.60.0
+#    REQUIRED
+#    # COMPONENTS system chrono date_time atomic thread
+#)
+#include_directories(${Boost_INCLUDE_DIRS})
+
+# Projects
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/common/)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/assembler/)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/tinycom/)

@@ -6,4 +6,7 @@ set(tinycom_src
 )
 
 add_executable(tinycom ${tinycom_src})
-target_link_libraries(tinycom tiny_common)
+target_link_libraries(tinycom
+	tiny_common
+	${Boost_LIBRARIES}
+)

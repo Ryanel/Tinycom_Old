@@ -26,18 +26,21 @@
 */
 typedef struct tinycom_instruction {
     uint8_t opcode; ///< 0 - 256; operand, 8 bits
-
     uint8_t reg_1; ///< 4 bits
     uint8_t reg_2; ///< 4 bits
-
     uint16_t value; ///< The value used by the instruction, if needed. If present, the instruction is 32 bits long
 } tinycom_ins_t;
 
 namespace Tinycom {
-	class ISA {
-	public:
-		static void PrintInstruction(tinycom_ins_t ins);
-		static uint32_t EncodeInstruction(tinycom_ins_t ins);
-		static tinycom_ins_t DecodeInstruction(uint32_t ins);
+	/// Container for anything to deal with the instruction set architecture of the Tinycom
+	namespace ISA {
+		void PrintInstruction(tinycom_ins_t ins); ///< Prints an intermediate representation of the tinycom_ins_t struct
+		uint32_t EncodeInstruction(tinycom_ins_t ins); ///< Turns an instruction into a 32bit instruction.
+		tinycom_ins_t DecodeInstruction(uint32_t ins); ///< Turns a 32bit instruction into a tinycom_ins_t struct (for easy parsing)
+
+		// Opcode specific
+
+		unsigned int GetInstructionLength(uint32_t a);
+		unsigned int GetInstructionLength(tinycom_ins_t a);
 	};
 }

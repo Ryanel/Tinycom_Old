@@ -1,15 +1,9 @@
-sudo: required
-dist: trusty
 language: cpp
 script: cmake . && make
 
-
 before_install:
 - sudo apt-get update -qq -y
-- sudo apt-get install -qq -y --reinstall cmake lua5.2 libsdl2-dev lua5.2
+- sudo apt-get install -qq -y --reinstall cmake libsdl2-dev
 
 compiler:
   - gcc
-
-git:
-  depth: 3

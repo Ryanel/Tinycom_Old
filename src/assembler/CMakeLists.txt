@@ -3,4 +3,7 @@ set(tinyasm_src
 )
 
 add_executable(tinyasm ${tinyasm_src})
-target_link_libraries(tinyasm tiny_common)
+target_link_libraries(tinyasm
+	tiny_common
+	${Boost_LIBRARIES}
+)
