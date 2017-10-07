@@ -3,7 +3,6 @@ script: cmake . && make
 
 before_install:
 - sudo apt-get update -qq -y
-- sudo apt-get install -qq -y --reinstall cmake libsdl2-dev
 
 compiler:
   - gcc
