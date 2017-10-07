@@ -32,3 +32,4 @@ configure_file (
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/common/)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/assembler/)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/tinycom/)
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/tinyide/)
