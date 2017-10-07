@@ -1,6 +1,6 @@
-#include "tinycom/instructions.hpp"
-
+#include "tinycommon/instructions.hpp"
 #include <stdio.h>
+
 namespace Tinycom
 {
 	void ISA::PrintInstruction(tinycom_ins_t ins) {

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include <cstddef>
 
 #define ISA_COND_EQ 0x0
 #define ISA_COND_NE 0x1
@@ -20,21 +19,18 @@
 #define ISA_COND_RS 0xE
 #define ISA_COND_AL 0xF
 
-/*
+/**
   An instruction on the tinycom.
   This is what the interpreter executes, but is converted from the compacted
   bytecode by the decoder.
 */
-
 typedef struct tinycom_instruction {
-    uint8_t opcode; // 0 - 256; operand, 8 bits
+    uint8_t opcode; ///< 0 - 256; operand, 8 bits
 
-    // Based on Opcode
-    uint8_t reg_1; // 4 bits
-    uint8_t reg_2; // 4 bits
+    uint8_t reg_1; ///< 4 bits
+    uint8_t reg_2; ///< 4 bits
 
-	// Addons, second 16 bits, if needed.
-    uint16_t value; // 16 bits
+    uint16_t value; ///< The value used by the instruction, if needed. If present, the instruction is 32 bits long
 } tinycom_ins_t;
 
 namespace Tinycom {

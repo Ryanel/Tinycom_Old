@@ -1,5 +1,5 @@
 set(tinyasm_src
-	main.cxx
+	main.cpp
 )
 
 add_executable(tinyasm ${tinyasm_src})

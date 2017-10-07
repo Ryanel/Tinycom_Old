@@ -1,6 +1,6 @@
 # CMake
 cmake_minimum_required(VERSION 3.0)
-project (Tinycom)
+project (Tinycom CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY

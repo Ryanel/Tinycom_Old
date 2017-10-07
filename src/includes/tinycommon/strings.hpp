@@ -1,5 +1,5 @@
 #pragma once
 
-namespace TinyCom {
+namespace Tinycom {
 	std::string ConditionMnemonic(char condition);
 }

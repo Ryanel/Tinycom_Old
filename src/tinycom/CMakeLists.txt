@@ -1,5 +1,8 @@
 set(tinycom_src
-	main.cxx
+	main.cpp
+	vm.cpp
+	cpu.cpp
+	ppu.cpp
 )
 
 add_executable(tinycom ${tinycom_src})

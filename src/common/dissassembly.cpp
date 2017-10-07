@@ -1,6 +1,6 @@
 #include <string>
 
-namespace TinyCom {
+namespace Tinycom {
 	std::string ConditionMnemonic(char condition) {
 		switch (condition)
 		{
@@ -41,4 +41,3 @@ namespace TinyCom {
 		}
 	}
 }
-

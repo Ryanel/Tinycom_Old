@@ -1,9 +1,10 @@
-#include "tinycom/instructions.hpp"
+#include "tinycommon/instructions.hpp"
+#include "tinycom/vm.hpp"
+
 #include <stdio.h>
 using namespace Tinycom;
 
 int main() {
-
 	tinycom_ins_t test;
 
 	test.value = 0xABCD;
