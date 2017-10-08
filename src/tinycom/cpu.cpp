@@ -1,6 +1,9 @@
+#include <cstring>
+#include <cinttypes>
 #include "tinycommon/isa.hpp"
 #include "tinycom/vm.hpp"
 #include "tinycom/cpu.hpp"
+
 using namespace Tinycom;
 
 CPU::CPU(VM * ctx) {
@@ -39,7 +42,7 @@ void CPU::OnCycle() {
 
 void CPU::Diag(int level) {
 	if (level >= 1) {
-		printf("cpu0: %lld / %lld cycles consumed from budget (%lld behind, %lld instructions)\n", diag_lastBudget - diag_lastBehindCycles, diag_lastBudget, diag_lastBehindCycles, diag_lastInstructions);
+		printf("cpu0: %" PRId64 " / %" PRId64 " cycles consumed from budget (%" PRId64 " behind, %" PRId64 " instructions)\n", diag_lastBudget - diag_lastBehindCycles, diag_lastBudget, diag_lastBehindCycles, diag_lastInstructions);
 	}
 	if (level >= 3) {
 		printf("cpu0: |r0  = %04x |r1  = %04x |r2  = %04x |r3  = %04x |r4  = %04x |r5  = %04x |r6  = %04x|\n", r[0].val, r[1].val, r[2].val, r[3].val, r[4].val, r[5].val, r[6].val);
