@@ -26,3 +26,28 @@ It comes with:
 * A resource converter
 
 In the future, compilers (like clang) will be able to target Tinycom, as the assembly will be fully feature. Or, a compiler will be written specifically for Tinycom.
+
+The assembly also is simple, with a small instruction set.
+
+For instance
+```
+LDX $300 ; Load $300 into X
+PHA ; Push A onto stack
+TXA ; Transfer X to A
+EOR $302 ; XOR
+STA $302 ; Store A into $302
+PLA
+```
+
+Could be respresented as:
+
+```
+mov r0, [300]
+push r1
+mov r1, r0
+xor r1, [302]
+mov [302], r1
+pop r1
+``
+
+The code's the same, equivalent, but there's only 1 move command, with the same semantics (destination first, source second).

@@ -1,10 +1,10 @@
 #include "tinycom/vm.hpp"
+#include "tinycommon/isa.hpp"
 #include <iostream>
 
 int main() {
+	Tinycom::ISA::Init();
 	Tinycom::VM vm;
-	vm.AddCheckpoint(1);
-	//print_queue(vm.checkpoints);
 
 	while (true) {
 		vm.Update();

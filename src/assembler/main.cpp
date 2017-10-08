@@ -5,6 +5,8 @@
 using namespace Tinycom;
 
 int main() {
+	Tinycom::ISA::Init();
+
 	tinycom_ins_t test;
 
 	test.value = 0xFACE;

@@ -8,6 +8,12 @@ using namespace Tinycom;
 
 VM::VM() {
 	cpu = new CPU(this);
+	cpu->OnReset();
+
+	cycles = 0;
+	checkpoint_enforced_cycles_last = 0;
+
+
 }
 VM::~VM() {
 	delete cpu;
@@ -29,7 +35,7 @@ void VM::RunTillNextCheckpoint()
 	cycles = checkpoints.top();
 	checkpoints.pop();
 
-	printf("checkpoint: %" PRIx64 "\n", cycles);
+	//printf("vm: sync %" PRId64 " cycles\n", cycles);
 
 	OnCycle();
 }
@@ -43,13 +49,5 @@ void VM::Update()
 		AddCheckpoint(checkpoint_enforced_cycles);
 	}
 	RunTillNextCheckpoint();
-	
-	// TODO: Sleep if we were under budget
-	/*
-	if(cycles < sleep_last_cycles + deltaCyclesTillNextSleep) {
-		// Use a timer from the start of the loop, to now, to determine deltaTime < (1 / checkpoint_divisor)
-		// usleep(deltaTime)
-	}
-	*/
 }
 

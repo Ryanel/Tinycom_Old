@@ -31,16 +31,23 @@ typedef struct tinycom_instruction {
     uint16_t value; ///< The value used by the instruction, if needed. If present, the instruction is 32 bits long
 } tinycom_ins_t;
 
+typedef struct {
+	int cycles;
+	int length;
+} tinycom_ins_def_t;
+
+
 namespace Tinycom {
 	/// Container for anything to deal with the instruction set architecture of the Tinycom
 	namespace ISA {
+		void Init(); // Init data structures for properties.
 		void PrintInstruction(tinycom_ins_t ins); ///< Prints an intermediate representation of the tinycom_ins_t struct
 		uint32_t EncodeInstruction(tinycom_ins_t ins); ///< Turns an instruction into a 32bit instruction.
 		tinycom_ins_t DecodeInstruction(uint32_t ins); ///< Turns a 32bit instruction into a tinycom_ins_t struct (for easy parsing)
-
-		// Opcode specific
-
+		uint8_t GetInstructionOpcode(uint32_t ins); ///< Used for optimization purposes if a full decode isn't needed.
 		unsigned int GetInstructionLength(uint32_t a);
 		unsigned int GetInstructionLength(tinycom_ins_t a);
+		unsigned int GetInstructionCycles(uint32_t a);
+		unsigned int GetInstructionCycles(tinycom_ins_t a);
 	};
 }

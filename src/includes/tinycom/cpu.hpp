@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include "tinycom/hardware.hpp"
+#include "tinycommon/isa.hpp"
 namespace Tinycom {
 	/// A hardware register of width 16 bits
 	typedef struct {
@@ -17,10 +18,22 @@ namespace Tinycom {
 
 	/// The Tinycom CPU
     class CPU : public Hardware {
-		register_t regs[0xF];
+		register_t r[0xF];
+		uint64_t cycleBudget = 0;
+
+		uint64_t diag_lastBehindCycles = 0;
+		uint64_t diag_lastBudget = 0;
+		uint64_t diag_lastInstructions = 0;
+
 	public:
+		const int reg_pc = 0xF;
+
 		CPU(VM * ctx);
 		~CPU();
+		void OnReset();
 		void OnCycle();
+		void Diag(int level);
+		int Execute(uint32_t instruction);
+		int Execute(tinycom_ins_t instruction);
 	};
 }
