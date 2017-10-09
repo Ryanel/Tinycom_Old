@@ -3,7 +3,7 @@
 
 namespace Tinycom {
 	namespace ISA {
-		
+
 		static tinycom_ins_def_t instructions[0xFF] = {};
 		void Init() {
 			// Init instruction data. Could be baked
@@ -43,7 +43,7 @@ namespace Tinycom {
 		}
 
 		uint8_t GetInstructionOpcode(uint32_t ins) {
-			return (ins & 0xFF000000) >> 56;
+			return (ins & 0xFF00000000000000) >> 56;
 		}
 
 
