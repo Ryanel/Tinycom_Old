@@ -38,7 +38,7 @@ void CPU::OnCycle() {
 
 	// Set cycles and return
 	cycles = vm->GetCycles() - cycleBudget;
-	Diag(3);
+	Diag(0);
 }
 
 void CPU::Diag(int level) {

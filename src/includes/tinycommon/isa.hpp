@@ -25,10 +25,10 @@
   bytecode by the decoder.
 */
 typedef struct tinycom_instruction {
-    uint8_t opcode; ///< 0 - 256; operand, 8 bits
-    uint8_t reg_1; ///< 4 bits
-    uint8_t reg_2; ///< 4 bits
-    uint16_t value; ///< The value used by the instruction, if needed. If present, the instruction is 32 bits long
+	uint8_t opcode; ///< 0 - 256; operand, 8 bits
+	uint8_t reg_1; ///< 4 bits
+	uint8_t reg_2; ///< 4 bits
+	uint16_t value; ///< The value used by the instruction, if needed. If present, the instruction is 32 bits long
 } tinycom_ins_t;
 
 typedef struct {

@@ -1,9 +1,9 @@
-#include "tinycom/vm.hpp"
-#include "tinycom/cpu.hpp"
 #include <vector>
 #include <queue>
-#include <inttypes.h>
 #include <cstdio>
+#include "tinycom/vm.hpp"
+#include "tinycom/cpu.hpp"
+
 using namespace Tinycom;
 
 VM::VM() {
@@ -32,11 +32,7 @@ void VM::OnCycle()
 void VM::RunTillNextCheckpoint()
 {
 	if (checkpoints.empty()) { return; }
-	cycles = checkpoints.top();
-	checkpoints.pop();
-
-	//printf("vm: sync %" PRId64 " cycles\n", cycles);
-
+	cycles = checkpoints.top(); checkpoints.pop();
 	OnCycle();
 }
 

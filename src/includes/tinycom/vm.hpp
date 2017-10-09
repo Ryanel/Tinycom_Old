@@ -3,6 +3,7 @@
 #include <vector>
 #include <queue>
 #include <functional>
+#include "tinycommon/priority_queue.hpp"
 
 namespace Tinycom {
 	class CPU;
@@ -12,10 +13,10 @@ namespace Tinycom {
 	Either has a singlethreaded checkpoint system, or multithreaded checkpoint system
 	*/
 
-    class VM {
-    private:
+	class VM {
+	private:
 		/// Master clock of how many cycles have transpired
-        uint64_t cycles = 0;
+		uint64_t cycles = 0;
 		uint64_t clockSpeed = 4000000; // 4mhz
 		uint64_t checkpoint_divisor = 60; // To get 60fps
 
@@ -31,7 +32,8 @@ namespace Tinycom {
 		uint64_t GetCycles() { return cycles; }
 
 		// Checkpoint system
-		std::priority_queue<uint64_t, std::vector<uint64_t>, std::greater<uint64_t>> checkpoints;
+		PriorityQueue<uint64_t> checkpoints;
+
 		void AddCheckpoint(uint64_t cycle); // Deltas
 
 		void OnCycle();
@@ -40,5 +42,5 @@ namespace Tinycom {
 
 		// Devices that need to be included
 		CPU * cpu;
-    };
+	};
 }

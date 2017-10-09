@@ -1,15 +1,15 @@
 #include "tinycom/vm.hpp"
 #include "tinycommon/isa.hpp"
-#include <iostream>
+#include "tinycommon/priority_queue.hpp"
+using namespace Tinycom;
 
 int main() {
-	Tinycom::ISA::Init();
-	Tinycom::VM vm;
+	ISA::Init();
+	VM vm;
 
 	while (true) {
 		vm.Update();
 	}
 	
-	getchar();
 	return 0;
 }
