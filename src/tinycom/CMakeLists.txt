@@ -2,6 +2,7 @@ set(tinycom_src
 	main.cpp
 	vm.cpp
 	cpu.cpp
+	mem.cpp
 	ppu.cpp
 )
 

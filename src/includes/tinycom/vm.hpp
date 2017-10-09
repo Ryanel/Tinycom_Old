@@ -7,6 +7,7 @@
 
 namespace Tinycom {
 	class CPU;
+	class Memory;
 	/**
 	The main virtual machine. Coordinates time, simulates all hardware, and allows for communication between components.
 
@@ -42,5 +43,6 @@ namespace Tinycom {
 
 		// Devices that need to be included
 		CPU * cpu;
+		Memory * mem;
 	};
 }

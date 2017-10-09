@@ -3,11 +3,13 @@
 #include <cstdio>
 #include "tinycom/vm.hpp"
 #include "tinycom/cpu.hpp"
-
+#include "tinycom/mem.hpp"
 using namespace Tinycom;
 
 VM::VM() {
 	cpu = new CPU(this);
+	mem = new Memory();
+
 	cpu->OnReset();
 
 	cycles = 0;
@@ -17,6 +19,7 @@ VM::VM() {
 }
 VM::~VM() {
 	delete cpu;
+	delete mem;
 }
 
 void VM::AddCheckpoint(uint64_t delta)

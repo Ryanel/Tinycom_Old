@@ -63,8 +63,9 @@ int CPU::Execute(uint32_t instruction)
 /// Returns number of cycles used to execute.
 int CPU::Execute(tinycom_ins_t instruction)
 {
-	int instruction_length = ISA::GetInstructionLength(instruction);
-	int instruction_cycles = ISA::GetInstructionCycles(instruction);
+	unsigned const int instruction_length = ISA::GetInstructionLength(instruction);
+	unsigned const int instruction_cycles = ISA::GetInstructionCycles(instruction);
+
 	if (cycleBudget < instruction_cycles) {
 		return 0;
 	}
