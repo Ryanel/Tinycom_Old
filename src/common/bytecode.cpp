@@ -10,9 +10,14 @@ namespace Tinycom {
 			// Only exceptions to defaults are located here
 			// The defaults are a length of 4, cycles of 1
 			// Format: Cycles, Length
-			instructions[0x00] = { 1, 2 }; // NOP
+			instructions[0x00] = { 1, 1 }; // NOP
+
 			instructions[0x01] = { 2, 2 }; // INC R
-			instructions[0x02] = { 2, 2 }; // DEC R
+			instructions[0x02] = { 2, 4 }; // INC $
+			instructions[0x03] = { 2, 4 }; // INC $ + R
+			instructions[0x11] = { 2, 2 }; // DEC R
+			instructions[0x12] = { 2, 4 }; // DEC $
+			instructions[0x13] = { 2, 4 }; // DEC $ + R
 		}
 
 		void PrintInstruction(tinycom_ins_t ins) {

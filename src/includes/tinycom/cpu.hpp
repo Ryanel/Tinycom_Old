@@ -18,7 +18,7 @@ namespace Tinycom {
 
 	/// The Tinycom CPU
     class CPU : public Hardware {
-		register_t r[0xF];
+		register_t r[16];
 		uint64_t cycleBudget = 0;
 
 		uint64_t diag_lastBehindCycles = 0;
@@ -28,7 +28,7 @@ namespace Tinycom {
 	public:
 		const int reg_pc = 0xF;
 
-		CPU(VM * ctx);
+		explicit CPU(VM * ctx);
 		~CPU();
 		void OnReset();
 		void OnCycle();

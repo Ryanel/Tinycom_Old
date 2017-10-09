@@ -21,6 +21,10 @@ namespace Tinycom {
 
 		uint64_t checkpoint_enforced_cycles_last = 0;
 		uint64_t checkpoint_enforced_cycles = 100; // Enforce a checkpoint this many cycles.
+		VM(const VM &obj);
+		VM& operator=(const VM&); // no implementation
+
+
 	public:
 		VM();
 		~VM();

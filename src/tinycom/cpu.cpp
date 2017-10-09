@@ -8,6 +8,7 @@ using namespace Tinycom;
 
 CPU::CPU(VM * ctx) {
 	vm = ctx;
+	OnReset();
 }
 
 CPU::~CPU() {}
